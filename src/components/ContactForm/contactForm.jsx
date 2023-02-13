@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import css from './ContactForm.module.css';
+import css from '../ContactForm/ContactForm.module.css';
 
-export const ContactsForm = ({ contacts = [], addContact }) => {
+export const ContactsForm = ({ contacts, addContact }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
