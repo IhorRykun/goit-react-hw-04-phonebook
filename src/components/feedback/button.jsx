@@ -1,4 +1,4 @@
-import css from '../Feedback/Feedback.module.css';
+
 export const Button = (goodHendler, neturalHendler, badHendler) => {
   <ul className={css.list}>
     <li>

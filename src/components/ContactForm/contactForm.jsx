@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import css from '../ContactForm/ContactForm.module.css';
+import {
+  InputName,
+  FormAdd,
+  FormLable,
+  InputNumber,
+  ButtonAdd,
+} from './ContactForm.styled';
 
 export const ContactsForm = ({ contacts, addContact }) => {
   const [name, setName] = useState('');
@@ -51,11 +57,10 @@ export const ContactsForm = ({ contacts, addContact }) => {
   };
 
   return (
-    <form className={css.form__add} onSubmit={handleSubmit} autoComplete="off">
+    <FormAdd onSubmit={handleSubmit} autoComplete="off">
       <label>
         Name:
-        <input
-          className={css.input__name}
+        <InputName
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -65,10 +70,9 @@ export const ContactsForm = ({ contacts, addContact }) => {
           onChange={e => onInputChange(e)}
         />
       </label>
-      <label className={css.form__lable}>
+      <FormLable>
         Number:
-        <input
-          className={css.input__number}
+        <InputNumber
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -77,10 +81,8 @@ export const ContactsForm = ({ contacts, addContact }) => {
           value={number}
           onChange={e => onInputChange(e)}
         />
-      </label>
-      <button className={css.button__add} type="submit">
-        add contact
-      </button>
-    </form>
+      </FormLable>
+      <ButtonAdd type="submit">add contact</ButtonAdd>
+    </FormAdd>
   );
 };

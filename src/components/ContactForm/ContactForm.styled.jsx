@@ -1,4 +1,6 @@
-.form__add {
+import styled from '@emotion/styled';
+
+export const FormAdd = styled.form`
   padding: 10px 0;
   width: 250px;
   border-radius: 8px;
@@ -6,9 +8,9 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-}
+`;
 
-.input__name {
+export const InputName = styled.input`
   margin-left: 15px;
   background-color: transparent;
   border: none;
@@ -16,9 +18,8 @@
   outline: none;
   color: white;
   width: 150px;
-}
-
-.input__number {
+`;
+export const InputNumber = styled.input`
   margin-left: 8px;
   margin-bottom: 10px;
   background-color: transparent;
@@ -27,13 +28,14 @@
   outline: none;
   color: white;
   width: 150px;
-}
-.form__lable {
+`;
+
+export const FormLable = styled.label`
   margin: 10px 0;
   margin-right: 10px;
-}
+`;
 
-.button__add {
+export const ButtonAdd = styled.button`
   cursor: pointer;
   width: 100px;
   height: 30px;
@@ -41,4 +43,4 @@
   color: white;
   border: none;
   border-radius: 8px;
-}
+`;

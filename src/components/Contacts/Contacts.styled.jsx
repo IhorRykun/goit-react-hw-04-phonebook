@@ -1,4 +1,7 @@
-.button__del {
+import styled from "@emotion/styled";
+
+
+export const ButtonDel = styled.button`
   cursor: pointer;
   width: 100px;
   height: 30px;
@@ -11,22 +14,23 @@
   margin-left: 10px;
   margin-top: 5px;
   border-radius: 8px;
-}
-
-.list {
+`
+ 
+export const List = styled.ul`
   list-style: none;
-}
+ `
 
-.item {
+ 
+export const Item = styled.li`
   margin: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.name {
-  margin-right: 6px;
-}
-.number {
-  margin-right: 10px;
-}
+ `
+ 
+export const Name = styled.span`
+margin-right: 6px;
+`
+export const Number = styled.span`
+ margin-right: 10px;
+`
