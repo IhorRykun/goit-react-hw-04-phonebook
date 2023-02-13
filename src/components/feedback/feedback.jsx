@@ -1,5 +1,5 @@
-import css from '../feedback/feedback.module.css';
-import { ListButton } from './listButton';
+import css from '../feedback/Feedback.module.css';
+import { ListButton } from './ListButton';
 import { useState } from 'react';
 
 export const Feedback = () => {

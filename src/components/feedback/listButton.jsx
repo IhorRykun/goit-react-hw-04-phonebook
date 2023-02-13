@@ -1,4 +1,4 @@
-import css from '../feedback/feedback.module.css';
+import css from '../Feedback/Feedback.module.css';
 
 
 export const ListButton = ({goodHendler, neturalHendler, badHendler}) => {

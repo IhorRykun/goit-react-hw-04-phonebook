@@ -1,4 +1,4 @@
-import css from '../feedback/feedback.module.css';
+import css from '../Feedback/Feedback.module.css';
 import PropTypes from 'prop-types';
 
 export const ListFeedback = ({ good, netural, bad, total }) => {
