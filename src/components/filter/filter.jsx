@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from '../Filter/Filter.module.css';
 
-export const Filters = ({filter, onInput}) => {
+export const Filter = ({filter, onInput}) => {
   return (
     <div>
       <p>Find contacts by name</p>
@@ -15,6 +15,6 @@ export const Filters = ({filter, onInput}) => {
   );
 };
 
-Filters.propTypes = {
+Filter.propTypes = {
   onInput: PropTypes.func,
 };

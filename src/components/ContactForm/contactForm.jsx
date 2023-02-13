@@ -2,52 +2,53 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 
-export const ContactsForm = ({ contacts, addContact }) => {
+export const ContactsForm = ({ contacts = [], addContact }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
 
- const onInputChange = e => {
-   let { name, value } = e.currentTarget;
-   setIsDisabled(isDisabled);
-   switch (name) {
-     case 'name':
-       setName(value);
-       break;
-     case 'number':
-       setNumber(value);
-       break;
-     default:
-       break;
-   }
+  const onInputChange = e => {
+    let { name, value } = e.currentTarget;
+    setIsDisabled(isDisabled);
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'number':
+        setNumber(value);
+        break;
+      default:
+        break;
+    }
 
-   let finder = contacts.find(contact =>
-       contact.name.toLowerCase() === value.toLowerCase() ||
-       contact.number === value
-   );
-   if (finder) {
-     setIsDisabled(true);
-     alert(`${value} is already in contacts.`);
-     setName('');
-   }
- };
+    let finder = contacts.find(
+      contact =>
+        contact.toLowerCase() === value.toLowerCase() ||
+        contact.number === value
+    );
+    if (finder) {
+      setIsDisabled(true);
+      alert(`${value} is already in contacts.`);
+      setName('');
+    }
+  };
 
- const resetForm = () => {
-   setName('');
-   setNumber('');
- };
+  const resetForm = () => {
+    setName('');
+    setNumber('');
+  };
 
- const handleSubmit = e => {
-   e.preventDefault();
-   const contact = {
-     id: nanoid(),
-     name: name,
-     number: number,
-   };
+  const handleSubmit = e => {
+    e.preventDefault();
+    const contact = {
+      id: nanoid(),
+      name: name,
+      number: number,
+    };
 
-   addContact(contact);
-   resetForm();
- };
+    addContact(contact);
+    resetForm();
+  };
 
   return (
     <form className={css.form__add} onSubmit={handleSubmit} autoComplete="off">
@@ -77,7 +78,7 @@ export const ContactsForm = ({ contacts, addContact }) => {
           onChange={e => onInputChange(e)}
         />
       </label>
-      <button className={css.button__add} type="submit">
+      <button className={css.button__add} type="submit" disabled={isDisabled}>
         add contact
       </button>
     </form>

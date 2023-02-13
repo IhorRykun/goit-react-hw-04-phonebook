@@ -7,8 +7,8 @@ export const Contacts = ({ contacts, filter, filtered, deleteItem }) => {
     <ul className={css.list}>
       {rendered.map(({ name, id, number }) => (
         <li className={css.item} key={id} id={id}>
-          <span className={css.name}>{name}: </span>
-          <span className={css.number}>{number}</span>
+          <span>{name}: </span>
+          <span>{number}</span>
           <button className={css.button__del} onClick={e => deleteItem(e)}>
             delete
           </button>
