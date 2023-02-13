@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import css from '../App/App.module.css';
 import { Forma } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
+import { Filterds } from 'components/Filter/Filter';
 import { ContactsList } from 'components/Contacts/Contacts';
 
 
@@ -48,7 +48,7 @@ export const App = () => {
       <Forma addContact={addContact} contacts={contacts} />
 
       <h1>Contacts</h1>
-      <Filter onInput={onInput} />
+      <Filterds onInput={onInput} />
       <ContactsList
         contacts={contacts}
         filter={filter}
