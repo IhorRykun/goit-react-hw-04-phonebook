@@ -1,7 +1,6 @@
-
-import { ContactsForm } from 'components/ContactForm/ContactForm';
-import { Contacts } from 'components/Contacts/Contacts';
-import { Filters } from 'components/Filter/Filter';
+import { ContactsForm } from '../components/ContactForm/ContactForm';
+import { Contacts } from '../components/Contacts/Contacts';
+import { Filters } from '../components/Filter/Filter';
 import { useState, useEffect } from 'react';
 import { ContainerApp } from './App.styled';
 
