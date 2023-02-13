@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
-import { InputForm } from './Filter.styled';
+import css from './Filter/Filter.module.css';
 
-export const Filters = ({ filter, onInput }) => {
+export const Filters = ({filter, onInput}) => {
   return (
     <div>
       <p>Find contacts by name</p>
-      <InputForm name="filter" value={filter} onChange={e => onInput(e)} />
+      <input
+        className={css.input}
+        name="filter"
+        value={filter}
+        onChange={e => onInput(e)}
+      />
     </div>
   );
 };

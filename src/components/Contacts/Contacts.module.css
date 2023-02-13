@@ -1,7 +1,4 @@
-import styled from "@emotion/styled";
-
-
-export const ButtonDel = styled.button`
+.button__del {
   cursor: pointer;
   width: 100px;
   height: 30px;
@@ -14,23 +11,22 @@ export const ButtonDel = styled.button`
   margin-left: 10px;
   margin-top: 5px;
   border-radius: 8px;
-`
- 
-export const List = styled.ul`
-  list-style: none;
- `
+}
 
- 
-export const Item = styled.li`
+.list {
+  list-style: none;
+}
+
+.item {
   margin: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
- `
- 
-export const Name = styled.span`
-margin-right: 6px;
-`
-export const Number = styled.span`
- margin-right: 10px;
-`
+}
+
+.name {
+  margin-right: 6px;
+}
+.number {
+  margin-right: 10px;
+}

@@ -1,8 +1,8 @@
-import { ContactsForm } from '../components/ContactForm/ContactForm';
-import { Contacts } from '../components/Contacts/Contacts';
-import { Filters } from '../components/Filter/Filter';
+import { ContactsForm } from 'components/ContactForm/ContactForm';
+import { Contacts } from 'components/Contacts/Contacts';
+import { Filters } from 'components/Filter/Filter';
 import { useState, useEffect } from 'react';
-import { ContainerApp } from './App.styled';
+import css from './App/App.module.css';
 
 const LOCALSTORAGE_KEY = 'contact';
 
@@ -42,7 +42,7 @@ export const App = () => {
   }, [contacts]);
 
   return (
-    <ContainerApp>
+    <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactsForm addContact={addContact} contacts={setContacts} />
 
@@ -54,6 +54,6 @@ export const App = () => {
         filtered={filtered}
         deleteItem={deleteItem}
       />
-    </ContainerApp>
+    </div>
   );
 };

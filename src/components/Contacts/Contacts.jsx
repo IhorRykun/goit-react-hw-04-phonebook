@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
-import { ButtonDel, Item, List, Name, Number } from './Contacts.styled';
+import css from './Contacts/Contacts.module.css';
 
 export const Contacts = ({ contacts, filter, filtered, deleteItem }) => {
   let rendered = filter === '' ? contacts : filtered();
   return (
-    <List>
+    <ul className={css.list}>
       {rendered.map(({ name, id, number }) => (
-        <Item key={id} id={id}>
-          <Name>{name}: </Name>
-          <Number>{number}</Number>
-          <ButtonDel onClick={e => deleteItem(e)}>
+        <li className={css.item} key={id} id={id}>
+          <span className={css.name}>{name}: </span>
+          <span className={css.number}>{number}</span>
+          <button className={css.button__del} onClick={e => deleteItem(e)}>
             delete
-          </ButtonDel>
-        </Item>
+          </button>
+        </li>
       ))}
-    </List>
+    </ul>
   );
 };
 
