@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
+import nanoid from 'nanoid';
 import {
   InputName,
   FormAdd,
