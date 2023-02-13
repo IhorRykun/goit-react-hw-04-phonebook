@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import css from '../../components/ContactForm/ContactForm.module.css';
+import css from '../ContactForm/ContactForm.module.css';
 
 export const ContactsForm = ({ contacts, addContact }) => {
   const [name, setName] = useState('');
@@ -14,7 +14,6 @@ export const ContactsForm = ({ contacts, addContact }) => {
       case 'name':
         setName(value);
         break;
-
       case 'number':
         setNumber(value);
         break;
@@ -39,7 +38,6 @@ export const ContactsForm = ({ contacts, addContact }) => {
     setNumber('');
   };
 
- 
   const handleSubmit = e => {
     e.preventDefault();
     const contact = {
