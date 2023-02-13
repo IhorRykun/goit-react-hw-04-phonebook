@@ -2,7 +2,7 @@ import { ContactsForm } from 'components/ContactForm/ContactForm';
 import { Contacts } from 'components/Contacts/Contacts';
 import { Filters } from 'components/Filter/Filter';
 import { useState, useEffect } from 'react';
-import css from './App/App.module.css';
+import css from 'App/App.module.css';
 
 const LOCALSTORAGE_KEY = 'contact';
 
