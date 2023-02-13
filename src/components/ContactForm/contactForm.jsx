@@ -15,7 +15,7 @@ export const ContactsForm = ({ contacts, addContact }) => {
 
   const onInputChange = e => {
     let { name, value } = e.currentTarget;
-    setIsDisabled(isDisabled);
+    setIsDisabled(false);
     switch (name) {
       case 'name':
         setName(value);
