@@ -6,7 +6,7 @@ export const Filters = ({filter, onInput}) => {
     <div>
       <p>Find contacts by name</p>
       <input
-        className={css.input}
+        className={css.input__form}
         name="filter"
         value={filter}
         onChange={e => onInput(e)}
