@@ -1,0 +1,59 @@
+.container {
+  margin: 0 auto;
+  background-color: gray;
+  display: block;
+  width: 400px;
+  border-radius: 10px;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+.button {
+  cursor: pointer;
+  width: 100px;
+  height: 25px;
+  border-radius: 8px;
+}
+.button:hover,
+.button:focus {
+  background-color: red;
+  color: white;
+  outline: 2px solid wheat;
+}
+
+.title {
+  color: white;
+  text-align: center;
+}
+
+.list__text {
+  list-style: none;
+}
+.list__text__item {
+  margin: 2px;
+}
+.title__text {
+  color: white;
+  text-align: center;
+}
+.span__text {
+  margin-left: 5px;
+  color: white;
+}
+
+.span__text__red {
+  margin-left: 5px;
+}
+.list__text__item {
+  color: white;
+}
+
+.text__message {
+  color: white;
+  text-align: center;
+}

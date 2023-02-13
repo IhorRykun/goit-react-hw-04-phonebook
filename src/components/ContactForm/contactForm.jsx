@@ -1,91 +1,86 @@
-import React from 'react';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import css from '../ContactForm/contactForm.module.css';
+import css from '../ContactForm/ContactForm.module.css';
 
+export const ContactsForm = ({ contacts, addContact }) => {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const [isDisabled, setIsDisabled] = useState(false);
 
-
-export class ContactsForm extends React.Component {
-  state = {
-    name: '',
-    number: '',
-    isDisabled: false,
-  };
-
-  onInputChange = e => {
+  const onInputChange = e => {
     let { name, value } = e.currentTarget;
-    this.setState({ isDisabled: false });
-    this.setState({ [name]: value });
+    setIsDisabled(isDisabled);
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
 
-    let finder = this.props.contacts.find(
+      case 'number':
+        setNumber(value);
+        break;
+      default:
+        break;
+    }
+
+    let finder = contacts.find(
       contact =>
         contact.name.toLowerCase() === value.toLowerCase() ||
         contact.number === value
     );
     if (finder) {
-      this.setState({ isDisabled: true });
+      setIsDisabled(true);
       alert(`${value} is already in contacts.`);
-      this.setState({ [name]: '' });
+      setName('');
     }
   };
 
-  resetForm = () => {
-    this.setState({ name: '', number: '' });
+  const resetForm = () => {
+    setName('');
+    setNumber('');
   };
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     const contact = {
       id: nanoid(),
-      name: this.state.name,
-      number: this.state.number,
+      name: name,
+      number: number,
     };
-
-    this.props.addContact(contact);
-    this.resetForm();
+    addContact(contact);
+    resetForm();
   };
 
-  render() {
-    return (
-      <form
-        className={css.form}
-        onSubmit={this.handleSubmit}
-        autoComplete="off"
-      >
-        <label>
-          Name:
-          <input
-            className={css.input__name}
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            value={this.state.name}
-            onChange={e => this.onInputChange(e)}
-          />
-        </label>
-        <label className={css.lable}>
-          Number:
-          <input
-            className={css.input__number}
-            type="tel"
-            name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            value={this.state.number}
-            onChange={e => this.onInputChange(e)}
-          />
-        </label>
-
-        <button
-          className={css.button}
-          type="submit"
-          disabled={this.state.isDisabled}
-        >
-          add contact
-        </button>
-      </form>
-    );
-  }
-}
+  return (
+    <form className={css.form__add} onSubmit={handleSubmit} autoComplete="off">
+      <label>
+        Name:
+        <input
+          className={css.input__name}
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          value={name}
+          onChange={e => onInputChange(e)}
+        />
+      </label>
+      <label className={css.form__lable}>
+        Number:
+        <input
+          className={css.input__number}
+          type="tel"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          value={number}
+          onChange={e => onInputChange(e)}
+        />
+      </label>
+      <button className={css.button__add} type="submit">
+        add contact
+      </button>
+    </form>
+  );
+};

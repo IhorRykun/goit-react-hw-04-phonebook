@@ -1,76 +1,59 @@
-import { ContactsForm } from 'components/ContactForm/contactForm';
+import { ContactsForm } from 'components/ContactForm/ContactForm';
 import { Contacts } from 'components/Contacts/Contacts';
-import { Filters } from 'components/filter/filter';
-import React, { Component } from 'react';
-import css from '../App/app.module.css';
-
+import { Filters } from 'components/Filter/Filter';
+import { useState, useEffect } from 'react';
+import css from '../App/App.module.css';
 
 const LOCALSTORAGE_KEY = 'contact';
 
-export class App extends Component {
-  state = {
-    contacts: [],
-    filter: '',
-  };
+export const App = () => {
+  const [contacts, setContacts] = useState([]);
+  const [filter, setFilter] = useState('');
 
-  componentDidMount() {
+  useEffect(() => {
     const data = localStorage.getItem(LOCALSTORAGE_KEY);
     const parsedData = JSON.parse(data);
     if (parsedData) {
-      this.setState({ contacts: parsedData });
+      setContacts(parsedData);
     }
-  }
+  }, []);
 
-  addContact = contact => {
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, contact],
-    }));
+  const addContact = contact => {
+    setContacts(prevState => [...prevState, contact]);
   };
 
-  onInput = e => {
-    this.setState({ filter: e.currentTarget.value });
+  const onInput = e => {
+    setFilter(e.currentTarget.value);
   };
 
-  filtered = () => {
-    return [...this.state.contacts].filter(contact =>
-      contact.name.toLowerCase().includes(this.state.filter.toLocaleLowerCase())
+  const filtered = () => {
+    return [...contacts].filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
     );
   };
 
-  deleteItem = e => {
+  const deleteItem = e => {
     const elemToRemove = e.currentTarget.parentNode.id;
-    this.setState({
-      contacts: this.state.contacts.filter(item => item.id !== elemToRemove),
-    });
+    setContacts(contacts.filter(item => item.id !== elemToRemove));
   };
 
-  componentDidUpdate(prevState, prevProps) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem(
-        LOCALSTORAGE_KEY,
-        JSON.stringify(this.state.contacts)
-      );
-    }
-  }
+  useEffect(() => {
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
+  }, [contacts]);
 
-  render() {
-    return (
-      <div className={css.div}>
-        <h1>Phonebook</h1>
-        <ContactsForm
-          addContact={this.addContact}
-          contacts={this.state.contacts}
-        />
+  return (
+    <div className={css.container}>
+      <h1>Phonebook</h1>
+      <ContactsForm addContact={addContact} contacts={setContacts} />
 
-        <h1>Contacts</h1>
-        <Filters onInput={this.onInput} />
-        <Contacts
-          contacts={this.state.contacts}
-          filter={this.state.filter}
-          filtered={this.filtered}
-          deleteItem={this.deleteItem}
-        />
-      </div>
-    );
-  }
-}
+      <h1>Contacts</h1>
+      <Filters onInput={onInput} />
+      <Contacts
+        contacts={contacts}
+        filter={filter}
+        filtered={filtered}
+        deleteItem={deleteItem}
+      />
+    </div>
+  );
+};
