@@ -21,8 +21,7 @@ export const ContactsForm = ({ contacts, addContact }) => {
        break;
    }
 
-   let finder = contacts.find(
-     contact =>
+   let finder = contacts.find(contact =>
        contact.name.toLowerCase() === value.toLowerCase() ||
        contact.number === value
    );
