@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import css from '../App/App.module.css';
-import { Forma } from 'components/ContactForm/ContactForm';
-import { Filterds } from 'components/Filter/Filter';
-import { ContactsList } from 'components/Contacts/Contacts';
+import { Forma } from 'components/ContactForm/Forma';
+import { Filterds } from 'components/Filter/Filterds';
+import { ContactsList } from 'components/Contacts/ContactsList';
 
 
 const LOCALSTORAGE_KEY = 'contact';

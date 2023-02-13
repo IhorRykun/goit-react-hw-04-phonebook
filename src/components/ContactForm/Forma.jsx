@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import css from '../ContactForm/ContactForm.module.css';
+import css from '../ContactForm/Forma.module.css';
 
 export const Forma = ({ contacts, addContact }) => {
   const [name, setName] = useState('');

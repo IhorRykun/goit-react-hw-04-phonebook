@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from '../Contacts/Contacts.module.css';
+import css from '../Contacts/ContactsList.module.css';
 
 export const ContactsList = ({ contacts, filter, filtered, deleteItem }) => {
   let rendered = filter === '' ? contacts : filtered();

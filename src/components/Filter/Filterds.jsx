@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from '../Filter/Filter.module.css';
+import css from '../Filter/Filterds.module.css';
 
 export const Filterds = ({filter, onInput}) => {
   return (
