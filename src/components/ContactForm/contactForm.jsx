@@ -7,47 +7,48 @@ export const ContactsForm = ({ contacts, addContact }) => {
   const [number, setNumber] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const onInputChange = e => {
-    let { name, value } = e.currentTarget;
-    setIsDisabled(isDisabled);
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        break;
-    }
+ const onInputChange = e => {
+   let { name, value } = e.currentTarget;
+   setIsDisabled(false);
+   switch (name) {
+     case 'name':
+       setName(value);
+       break;
+     case 'number':
+       setNumber(value);
+       break;
+     default:
+       break;
+   }
 
-    let finder = contacts.find(
-      contact =>
-        contact.name.toLowerCase() === value.toLowerCase() ||
-        contact.number === value
-    );
-    if (finder) {
-      setIsDisabled(true);
-      alert(`${value} is already in contacts.`);
-      setName('');
-    }
-  };
+   let finder = contacts.find(
+     contact =>
+       contact.name.toLowerCase() === value.toLowerCase() ||
+       contact.number === value
+   );
+   if (finder) {
+     setIsDisabled(true);
+     alert(`${value} is already in contacts.`);
+     setName('');
+   }
+ };
 
-  const resetForm = () => {
-    setName('');
-    setNumber('');
-  };
+ const resetForm = () => {
+   setName('');
+   setNumber('');
+ };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const contact = {
-      id: nanoid(),
-      name: name,
-      number: number,
-    };
-    addContact(contact);
-    resetForm();
-  };
+ const handleSubmit = e => {
+   e.preventDefault();
+   const contact = {
+     id: nanoid(),
+     name: name,
+     number: number,
+   };
+
+   addContact(contact);
+   resetForm();
+ };
 
   return (
     <form className={css.form__add} onSubmit={handleSubmit} autoComplete="off">
