@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import css from '../App/App.module.css';
-import { ContactsForm } from 'components/ContactForm/ContactForm';
-import { Filter } from '../components/Filter/Filter';
-import { Contacts } from '../components/Contacts/Contacts';
+import { Forma } from 'components/ContactForm/ContactForm';
+import { Filter } from 'components/Filter/Filter';
+import { ContactsList } from 'components/Contacts/Contacts';
+
 
 const LOCALSTORAGE_KEY = 'contact';
 
@@ -44,11 +45,11 @@ export const App = () => {
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
-      <ContactsForm addContact={addContact} contacts={contacts} />
+      <Forma addContact={addContact} contacts={contacts} />
 
       <h1>Contacts</h1>
       <Filter onInput={onInput} />
-      <Contacts
+      <ContactsList
         contacts={contacts}
         filter={filter}
         filtered={filtered}
