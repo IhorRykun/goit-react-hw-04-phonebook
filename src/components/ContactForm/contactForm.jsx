@@ -39,6 +39,7 @@ export const ContactsForm = ({ contacts, addContact }) => {
     setNumber('');
   };
 
+ 
   const handleSubmit = e => {
     e.preventDefault();
     const contact = {
