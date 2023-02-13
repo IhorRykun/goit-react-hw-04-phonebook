@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import css from '../App/App.module.css';
-import { ContactsForm } from '../components/ContactForm/ContactForm';
+import { ContactsForm } from 'components/ContactForm/ContactForm';
 import { Filter } from '../components/Filter/Filter';
 import { Contacts } from '../components/Contacts/Contacts';
 
