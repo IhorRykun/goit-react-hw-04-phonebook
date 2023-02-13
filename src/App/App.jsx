@@ -1,5 +1,5 @@
-import { ContactsForm } from '../../src/components/ContactForm/ContactForm';
-import { Contacts } from '../../src/components/Contacts/Contacts';
+import { ContactsForm } from '../components/ContactForm/ContactForm';
+import { Contacts } from '../components/Contacts/Contacts';
 import { Filters } from '../components/Filter/Filter';
 import { useState, useEffect } from 'react';
 import css from '../App/App.module.css';
