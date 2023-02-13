@@ -1,0 +1,41 @@
+.form {
+  padding: 10px 0;
+  width: 250px;
+  border-radius: 8px;
+  height: 100px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input__name {
+  margin-left: 15px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  color: white;
+}
+
+.input__number {
+  margin-left: 8px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  color: white;
+}
+.lable {
+  margin-right: 10px;
+}
+
+.button {
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
